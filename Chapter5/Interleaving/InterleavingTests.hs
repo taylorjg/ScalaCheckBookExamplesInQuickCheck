@@ -12,5 +12,4 @@ interleaveProperty xs ys =
         p3 = label "zip ys" $ ys == map (\i -> res !! (2*i+1)) is ++ drop (2*length xs) res
 
 main :: IO ()
-main = do
-    quickCheck interleaveProperty
+main = quickCheck interleaveProperty

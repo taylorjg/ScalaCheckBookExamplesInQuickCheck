@@ -1,5 +1,4 @@
 import Test.QuickCheck
-import Test.QuickCheck.Gen
 import RunLengthEncoding (runLengthEnc, runLengthDec)
 
 genNumChar :: Gen Char
@@ -39,5 +38,4 @@ runLengthEncodingProperty =
     forAll genOutput $ \r -> runLengthEnc (runLengthDec r) == r
 
 main :: IO ()
-main = do
-    quickCheck runLengthEncodingProperty
+main = quickCheck runLengthEncodingProperty
