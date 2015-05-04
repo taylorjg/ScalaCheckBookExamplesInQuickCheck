@@ -1,4 +1,6 @@
 module Interleaving (interleave) where
 
 interleave :: [a] -> [a] -> [a]
-interleave xs ys = xs ++ ys
+interleave [] ys = ys
+interleave xs [] = xs
+interleave xs ys = head xs : head ys : interleave (tail xs) (tail ys)
