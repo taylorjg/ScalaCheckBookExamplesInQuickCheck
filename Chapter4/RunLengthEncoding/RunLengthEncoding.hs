@@ -4,4 +4,4 @@ runLengthEnc :: [a] -> [(Int, a)]
 runLengthEnc xs = undefined
 
 runLengthDec :: [(Int, a)] -> [a]
-runLengthDec r = undefined
+runLengthDec = (>>= uncurry replicate)
