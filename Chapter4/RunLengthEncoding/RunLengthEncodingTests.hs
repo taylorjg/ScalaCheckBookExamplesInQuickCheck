@@ -27,7 +27,7 @@ genOutput =
             return (n, c)
         rleList :: Int -> Gen [(Int, Char)]
         rleList size =
-            if size <= 1 then fmap (\x -> [x]) rleItem
+            if size <= 1 then fmap return rleItem
             else do
                 tail@((_, c1):_) <- rleList (size - 1)
                 head <- suchThat rleItem $ \(_, c2) -> c1 /= c2
