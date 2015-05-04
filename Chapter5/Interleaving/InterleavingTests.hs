@@ -1,5 +1,4 @@
 import Test.QuickCheck
-import System.Random
 import Interleaving (interleave)
 
 interleaveProperty :: [Int] -> [Int] -> Property
