@@ -1,4 +1,4 @@
-module RunLengthEncoding (runLengthEnc, runLengthDec) where
+module Chapter4.RunLengthEncoding.RunLengthEncoding (runLengthEnc, runLengthDec) where
 
 runLengthEnc :: Eq a => [a] -> [(Int, a)]
 runLengthEnc [] = []

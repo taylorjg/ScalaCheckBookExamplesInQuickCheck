@@ -1,5 +1,5 @@
 import Test.QuickCheck
-import Interleaving (interleave)
+import Chapter5.Interleaving.Interleaving (interleave)
 
 interleaveProperty :: [Int] -> [Int] -> Property
 interleaveProperty xs ys =

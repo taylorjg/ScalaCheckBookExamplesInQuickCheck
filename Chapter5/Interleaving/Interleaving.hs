@@ -1,4 +1,4 @@
-module Interleaving (interleave) where
+module Chapter5.Interleaving.Interleaving (interleave) where
 
 interleave :: [a] -> [a] -> [a]
 interleave [] ys = ys
