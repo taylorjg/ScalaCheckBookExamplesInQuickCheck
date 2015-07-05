@@ -20,8 +20,10 @@ rewrite :: Expression -> Expression
 rewrite e = case e of
     (Add e1 e2) | e1 == e2 -> Mul (Const 2) e1
     (Mul (Const 0) _) -> Const 0
-    (Add (Const 1) e2) -> e2
-    -- (Add (Const 0) e2) -> e2
+    -- "(Add (Const 1) e2) -> e2" is a bug. Use it instead of
+    -- "(Add (Const 0) e2) -> e2" to demonstrate shrinking.
+    -- (Add (Const 1) e2) -> e2
+    (Add (Const 0) e2) -> e2
     _ -> e
 
 genExpr :: Gen Expression
@@ -48,8 +50,19 @@ genMul = do
     e2 <- genExpr
     return $ Mul e1 e2
 
+shrinkExpr :: Expression -> [Expression]
+shrinkExpr (Const n) = Const `fmap` shrink n
+shrinkExpr (Add e1 e2) =
+    [e1, e2] ++
+    (\e -> Add e e2) `fmap` shrinkExpr e1 ++
+    (\e -> Add e1 e) `fmap` shrinkExpr e2
+shrinkExpr (Mul e1 e2) =
+    [e1, e2] ++
+    (\e -> Mul e e2) `fmap` shrinkExpr e1 ++
+    (\e -> Mul e1 e) `fmap` shrinkExpr e2
+
 propRewrite :: Property
-propRewrite = forAll genExpr $ \expr ->
+propRewrite = forAllShrink genExpr shrinkExpr $ \expr ->
     eval (rewrite expr) == eval expr
 
 main :: IO ()
