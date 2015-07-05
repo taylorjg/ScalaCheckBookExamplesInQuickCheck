@@ -37,6 +37,13 @@ test-suite ClassifyingTestStatistics
     hs-source-dirs:     src
     main-is:            Chapter5\ClassifyingTestStatistics.hs
     build-depends:      base >=4.7 && <4.8,
-                        QuickCheck >=2.6 && <2.7,
-                        ScalaCheckBookExamplesInQuickCheck
+                        QuickCheck >=2.6 && <2.7
+    default-language:   Haskell2010
+
+test-suite CollectingTestStatistics
+    type:               exitcode-stdio-1.0
+    hs-source-dirs:     src
+    main-is:            Chapter5\CollectingTestStatistics.hs
+    build-depends:      base >=4.7 && <4.8,
+                        QuickCheck >=2.6 && <2.7
     default-language:   Haskell2010
