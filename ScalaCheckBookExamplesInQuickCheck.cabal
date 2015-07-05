@@ -63,3 +63,19 @@ test-suite CustomTestCaseSimplification
     build-depends:      base >=4.7 && <4.8,
                         QuickCheck >=2.6 && <2.7
     default-language:   Haskell2010
+
+test-suite HigherOrderGeneratorsSamples
+    type:               exitcode-stdio-1.0
+    hs-source-dirs:     src
+    main-is:            Chapter6\HigherOrderGenerators\Samples.hs
+    build-depends:      base >=4.7 && <4.8,
+                        QuickCheck >=2.6 && <2.7
+    default-language:   Haskell2010
+
+test-suite HigherOrderGeneratorsNumberGen
+    type:               exitcode-stdio-1.0
+    hs-source-dirs:     src
+    main-is:            Chapter6\HigherOrderGenerators\NumberGen.hs
+    build-depends:      base >=4.7 && <4.8,
+                        QuickCheck >=2.6 && <2.7
+    default-language:   Haskell2010
