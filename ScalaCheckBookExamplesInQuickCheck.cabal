@@ -7,24 +7,34 @@ cabal-version:       >= 1.10
 
 library
     exposed-modules:    Chapter4.RunLengthEncoding.RunLengthEncoding,
+                        -- Chapter4.RunLengthEncoding.RunLengthEncodingTests2,
                         Chapter5.Interleaving.Interleaving,
                         ScalaCheckBits.ScalaCheckBits
-    build-depends:      base >=4.7 && <4.8, QuickCheck >=2.6 && <2.7
+    build-depends:      base >=4.7 && <4.8,
+                        QuickCheck >=2.6 && <2.7
+                        -- , Cabal ==1.18.*
     default-language:   Haskell2010
 
-test-suite Chapter4.RunLengthEncoding.tests
+test-suite RunLengthEncodingTests
     type:               exitcode-stdio-1.0
-    hs-source-dirs:     Chapter4/RunLengthEncoding
-    main-is:            RunLengthEncodingTests.hs
+    main-is:            Chapter4\RunLengthEncoding\RunLengthEncodingTests.hs
     build-depends:      base >=4.7 && <4.8,
                         QuickCheck >=2.6 && <2.7,
                         ScalaCheckBookExamplesInQuickCheck
     default-language:   Haskell2010
 
-test-suite Chapter5.RunLengthEncoding.tests
+-- test-suite RunLengthEncodingTests2
+--     type:               detailed-0.9
+--     test-module:        Chapter4.RunLengthEncoding.RunLengthEncodingTests2
+--     build-depends:      base >=4.7 && <4.8,
+--                         QuickCheck >=2.6 && <2.7,
+--                         ScalaCheckBookExamplesInQuickCheck,
+--                         Cabal ==1.18.*
+--     default-language:   Haskell2010
+
+test-suite InterleavingTests
     type:               exitcode-stdio-1.0
-    hs-source-dirs:     Chapter5/Interleaving
-    main-is:            InterleavingTests.hs
+    main-is:            Chapter5\Interleaving\InterleavingTests.hs
     build-depends:      base >=4.7 && <4.8,
                         QuickCheck >=2.6 && <2.7,
                         ScalaCheckBookExamplesInQuickCheck
