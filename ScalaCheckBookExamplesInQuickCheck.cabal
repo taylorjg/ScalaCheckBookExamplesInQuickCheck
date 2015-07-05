@@ -55,3 +55,11 @@ test-suite RecursiveGenerators
     build-depends:      base >=4.7 && <4.8,
                         QuickCheck >=2.6 && <2.7
     default-language:   Haskell2010
+
+test-suite CustomTestCaseSimplification
+    type:               exitcode-stdio-1.0
+    hs-source-dirs:     src
+    main-is:            Chapter6\CustomTestCaseSimplification\Test.hs
+    build-depends:      base >=4.7 && <4.8,
+                        QuickCheck >=2.6 && <2.7
+    default-language:   Haskell2010
