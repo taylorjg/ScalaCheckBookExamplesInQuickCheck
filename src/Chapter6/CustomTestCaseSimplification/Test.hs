@@ -61,9 +61,12 @@ shrinkExpr (Mul e1 e2) =
     (\e -> Mul e e2) `fmap` shrinkExpr e1 ++
     (\e -> Mul e1 e) `fmap` shrinkExpr e2
 
-propRewrite :: Property
-propRewrite = forAllShrink genExpr shrinkExpr $ \expr ->
-    eval (rewrite expr) == eval expr
+instance Arbitrary Expression where
+    arbitrary = genExpr
+    shrink = shrinkExpr
+
+propRewrite :: Expression -> Bool
+propRewrite expr = eval (rewrite expr) == eval expr
 
 main :: IO ()
 main = quickCheckWith (stdArgs { maxSuccess = 10000 }) propRewrite
