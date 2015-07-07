@@ -54,12 +54,12 @@ shrinkExpr :: Expression -> [Expression]
 shrinkExpr (Const n) = Const `fmap` shrink n
 shrinkExpr (Add e1 e2) =
     [e1, e2] ++
-    (\e -> Add e e2) `fmap` shrinkExpr e1 ++
-    (\e -> Add e1 e) `fmap` shrinkExpr e2
+    (`Add` e2) `fmap` shrinkExpr e1 ++
+    (Add e1) `fmap` shrinkExpr e2
 shrinkExpr (Mul e1 e2) =
     [e1, e2] ++
-    (\e -> Mul e e2) `fmap` shrinkExpr e1 ++
-    (\e -> Mul e1 e) `fmap` shrinkExpr e2
+    (`Mul` e2) `fmap` shrinkExpr e1 ++
+    (Mul e1) `fmap` shrinkExpr e2
 
 instance Arbitrary Expression where
     arbitrary = genExpr
