@@ -4,6 +4,7 @@
 The book, [_ScalaCheck: The Definitive Guide_](http://www.artima.com/shop/scalacheck), contains some nice examples
 of property-based testing. The idea of this repo is to port some of these
 examples from Scala / ScalaCheck to Haskell / QuickCheck.
+
 ## Progress
 
 Below is a list of examples that I have ported to Haskell / QuickCheck:
@@ -32,4 +33,5 @@ Below is a list of examples that I have ported to Haskell / QuickCheck:
 * http://booksites.artima.com/scalacheck/ScalaCheckExamples.zip
 * https://wiki.haskell.org/Introduction_to_QuickCheck2
 * https://hackage.haskell.org/package/QuickCheck
-* https://github.com/taylorjg/ScalaCheckBookExamplesInFsCheck2
+* [Port of the examples in the ScalaCheck book to C# and FsCheck 2](https://github.com/taylorjg/ScalaCheckBookExamplesInFsCheck2)
+* [Port of the examples in the ScalaCheck book to F# and FsCheck 2](https://github.com/taylorjg/ScalaCheckBookExamplesInFsCheckInFs)
